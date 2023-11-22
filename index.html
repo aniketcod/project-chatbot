@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400&family=Finger+Paint&display=swap">
 <style>
+  body{
+    background-image: url(botpic.jpg);
+  }
 * {
   font-size: 1.3vw;
   font-family: "Epilogue", sans-serif;
@@ -19,12 +22,10 @@ html {
 }
 
 
-
-
 body .card {
   height: 45vw;
   width: 35vw;
-  background-color: white;
+  background-color: turquoise;
   margin-left: 30vw;
   margin-top: 5vw;
   box-shadow: 2vw 2vw 12vw 3vw #ccc;
@@ -103,6 +104,7 @@ body .card #input-section {
 }
 body .card #input-section input {
   color: #000;
+  background-color: #d4af2b;
   min-width: 0.5vw;
   outline: none;
   height: 5vw;
@@ -155,6 +157,25 @@ body .card .send .circle i {
         <div class="circle"><i class="zmdi zmdi-mail-send"></i></div>
       </button>
     </div>
+  </div>
+  <div>
+
+    <div id="userInfo"></div>
+
+    <a href="register.html" class="btn btn-primary">Go back to Register Page</a>
+  </div>
+
+  <script>
+    // Retrieve user information from Local Storage
+    var storedUser = localStorage.getItem('user');
+
+    if (storedUser) {
+      var user = JSON.parse(storedUser);
+      document.getElementById('userInfo').innerHTML = 'Username: ' + user.username + '<br>Email: ' + user.email;
+    } else {
+      document.getElementById('userInfo').innerHTML = 'No user information available.';
+    }
+  </script>
   </div>
   <script >const userMessage = [
     ["hi", "hey", "hello"],
@@ -265,6 +286,7 @@ body .card .send .circle i {
     input != "" && output(input);
     inputField.value = "";
   }
+  
   document.addEventListener("DOMContentLoaded", () => {
     const inputField = document.getElementById("input");
     inputField.addEventListener("keydown", function (e) {
@@ -358,5 +380,13 @@ body .card .send .circle i {
     scroll.scrollTop = scroll.scrollHeight;
     voiceControl(product);
   }</script>
+    <script > var storedUser = localStorage.getItem('user');
+
+      if (storedUser) {
+        var user = JSON.parse(storedUser);
+        document.getElementById('userInfo').innerHTML = 'Username: ' + user.username + '<br>Email: ' + user.email;
+      } else {
+        document.getElementById('userInfo').innerHTML = 'No user information available.';
+      }</script>
 </body>
 </html>
